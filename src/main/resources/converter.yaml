@@ -1,0 +1,63 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server converter.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters."
+  version: "1.0.0"
+  title: "Swagger Converter 2.0"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "api.nbp.pl"
+basePath: "/api/exchangerates"
+tags:
+  - name: "rates"
+    description: "Everything about exchange rates"
+schemes:
+  - "https"
+paths:
+
+  /rates/c/eur/today:
+    get:
+      tags:
+        - "rates"
+      summary: "Get current rates"
+      description: "Multiple status values can be provided with comma separated strings"
+      operationId: "getCurrentRates"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - name: "format"
+          in: "query"
+          description: "Decyduje o formacie response"
+          required: false
+          type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/SwaggerNbp"
+        "400":
+          description: "Invalid status value"
+
+
+definitions:
+
+  SwaggerNbp:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+      table:
+        type: "string"
+      currency:
+        type: "string"
+    xml:
+      name: "Category"
+
+
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

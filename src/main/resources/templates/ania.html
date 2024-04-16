@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--/*
+SPDX-FileCopyrightText: Copyright (c) 2022-2023 Andrea Binello ("andbin")
+SPDX-License-Identifier: MIT
+*/-->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" th:href="@{/css/reset.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/home.css}" type="text/css">
+    <title>Spring Boot 2 &ndash; Thymeleaf Basic Dupa</title>
+</head>
+<body>
+
+<h1>Today's prices for Clothing: </h1>
+
+<div>
+    <div>Cene sprzedaży malejąco: <span th:text="${bid}"></span></div>
+    <div>Cene zakupu rosnąco: <span th:text="${ask}"></span></div>
+</div>
+
+</body>
+</html>
